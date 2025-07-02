@@ -23,7 +23,7 @@ const SKILLS_ICONS = {
 
 };
 
-// Define the skills array with the technologies you're using
+// The skills array with the technologies using
 const skills = [
   { name: 'HTML' },
   { name: 'CSS' },
@@ -43,7 +43,7 @@ const skills = [
 export default function Skills() {
   return (
     <div className='pt-5'>
-    <Section title="Skills">
+    <Section title="Technologies">
       <hr className='mt-1 mb-3 text-indigo-500' />
       <ul className="flex flex-wrap gap-2 justify-center">
         {[...skills].map(({ name }, index) => {

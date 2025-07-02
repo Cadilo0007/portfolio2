@@ -1,13 +1,13 @@
 /* Lanyard.css */
 
-.lanyard-container {
+/* .lanyard-container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-}
+} */
 .lanyard-wrapper {
   width: 100%;
   height: 100vh;

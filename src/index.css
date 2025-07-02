@@ -1,5 +1,148 @@
 @import "tailwindcss";
 
-.container {
-  background-color: black;
+html {
+  scroll-behavior: smooth;
+}
+.card {
+  --start: 0; /* You can dynamically change this if needed */
+  position: relative;
+  z-index: 40;
+  overflow: hidden;
+  transition: border-color 1s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.card::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: var(--gradient, conic-gradient(from 0deg, rgba(129, 140, 248, 0.8) 0deg, rgba(99, 102, 241, 0.5) 180deg, rgba(129, 140, 248, 0.8) 360deg)); /* Use default gradient */
+  background-attachment: fixed;
+  mask: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - 15) * 1deg),
+      #ffffff1f 0deg,
+      white,
+      #ffffff00 100deg
+    );
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease, background 0.5s ease;
+}
+
+.glow {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(10px) saturate(200);
+}
+
+.card:hover::before {
+  opacity: 1;
+  background: conic-gradient(
+    from calc((var(--start) - 15) * 1deg),
+    rgba(129, 140, 248, 0.8) 0deg,
+    rgba(99, 102, 241, 0.5) 180deg,
+    rgba(129, 140, 248, 0.8) 360deg
+  );
+}
+
+
+
+/* Hero text slider starts */
+.slide {
+  display: inline-block;
+  overflow: hidden; /* Ito importante para "masking" */
+  height: 1.1rem; /* Depende sa height ng isang item — adjust mo later */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: wordSlider 21s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+}
+
+.wrapper span {
+  height: 2.5rem; /* Pareho dapat sa .slide height */
+}
+
+
+@keyframes wordSlider {
+  0% {
+    transform: translateY(0.5%);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+}
+
+/* Hero Text slider ends */
+
+/* profile  */
+
+
+.image {
+  transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8), opacity 0.4s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.image--current {
+  z-index: 10;
+  transform: translateY(0) rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+.image--next {
+  z-index: 5;
+  transform: translateY(-10px) rotate(4deg) scale(1);
+  opacity: 0.9;
+}
+
+.image--out {
+  z-index: 1;
+  transform: translateY(-20px) rotate(8deg) scale(0.95);
+  opacity: 0.7;
+}
+
+.loader {
+  animation-duration: 3s;
+  animation-name: spin;
+}
+keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    border-radius: 50%;
+  }
 }

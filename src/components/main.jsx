@@ -53,8 +53,9 @@ const Main = () => {
       ) : (
         <div className="relative bg-slate-950">
           <div style={gradientStyle}></div>
-          <div className="relative z-10">
-            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+
+          <div>
+            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />              
             <Nav />
             <Hero />
             <About />

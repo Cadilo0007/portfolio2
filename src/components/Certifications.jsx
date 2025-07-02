@@ -4,11 +4,12 @@ import Certificate1 from '../assets/IMAGE.png';
 import Cisco from '../assets/exploring_networking_with_cisco_packet_tracer_25.png';
 import Cisco2 from '../assets/getting_started_with_cisco_packet_tracer_24.png';
 import Cisco3 from '../assets/exploring_iot_with_cisco_packet_tracer_26.png';
+import game2048 from '../assets/2048.png';
 
 const certifications = [
   {
     title: 'Free Coding Bootcamp: JavaScript Game Development Workshop',
-    image: Certificate1,
+    image: game2048,
     issuer: 'ZUITT',
     date: 'August 2024',
   },

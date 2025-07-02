@@ -10,8 +10,8 @@ import ProjectX from '../assets/IMAGE.png';
 const allProjects = [
   {
     name: 'Attendance System',
-    url: 'https://yourproject1.com',
-    github: 'https://github.com/yourproject1',
+    url: 'https://github.com/Cadilo0007/AMS-usingRFID.git',
+    github: 'https://github.com/Cadilo0007/AMS-usingRFID.git',
     description: 'Capstone project: Designed to streamline processes for faculty and staff of IC,Inc.',
     highlights: ['CSS', 'HTML', 'PHP', 'JavaScript'],
     isActive: true,
@@ -19,8 +19,8 @@ const allProjects = [
   },
   {
     name: 'Home Automation',
-    url: 'https://yourproject2.com',
-    github: 'https://github.com/yourproject2',
+    url: 'https://github.com/Cadilo0007/Home-automation.git',
+    github: 'https://github.com/Cadilo0007/Home-automation.git',
     description: "I built this as part of my Arduino subject—it's a fun way to explore how microcontrollers work in real projects.",
     highlights: ['CSS', 'HTML', 'Arduino', 'JavaScript', 'C++'],
     isActive: true,
@@ -37,8 +37,8 @@ const allProjects = [
   },
   {
     name: 'E-commerce',
-    url: 'https://yourproject4.com',
-    github: 'https://github.com/yourproject3',
+    url: 'https://github.com/eiirikr/Ecommerce-Web-App-Client.git',
+    github: 'https://github.com/eiirikr/Ecommerce-Web-App-Client.git',
     description: 'Ongoing development of a user-friendly e-commerce website designed to provide a seamless online shopping experience.',
     highlights: ['CSS', 'HTML', 'JavaScript', 'React js', 'Tailwind CSS', ],
     isActive: true,
@@ -46,8 +46,8 @@ const allProjects = [
   },
   {
     name: 'Minimalist Portfolio',
-    url: 'https://yourproject5.com',
-    github: 'https://github.com/yourproject3',
+    url: 'https://github.com/Cadilo0007/portfolio2.git',
+    github: 'https://github.com/Cadilo0007/portfolio2.git',
     description: 'A minimalist designed for my personal portfolio website.',
     highlights: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Tailwind CSS', 'Node.js', 'TypeScript'],
     isActive: true,

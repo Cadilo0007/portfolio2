@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Section from './Section';
 import dictLogo from '../assets/logo/DICT-Logo-Final.png';
+import logo from '../assets/IMAGE.png';
 
 export default function Experience() {
   const work = [
@@ -13,6 +14,16 @@ export default function Experience() {
       summary:
         'As an intern at the Department of Information and Communications Technology (DICT), I gained valuable hands-on experience in various areas such as networking, cybersecurity, programming, and IT infrastructure. I participated in training sessions, worked on real-world projects, and collaborated with a team of professionals, all while learning new skills and applying my knowledge to industry-standard tasks. This internship provided an opportunity for professional growth, allowing me to develop both technical and soft skills in a supportive and structured environment.',
       url: 'https://dict.gov.ph',
+    },
+        {
+      name: 'Freelance',
+      logo: logo,
+      startDate: '2023-04-05',
+      endDate: '',
+      position: 'Self Employed',
+      summary: `Created animated and branded visuals in Canva for various clients. Developed responsive portfolio websites using HTML, CSS, and JavaScript, and collaborated to enhance UX and layout.
+      `,
+      url: '',
     },
   ];
 
@@ -64,7 +75,7 @@ export default function Experience() {
                     {/* Conditionally add ellipsis and "Show more" if the summary is hidden */}
                     <footer>
                       {!isOpen && (
-                        <p className="text-indigo-300 text-sm">
+                        <p className="text-indigo-300 text-sm scale-z-200">
                           {summary.substring(0, 100)}...{' '}
                           <span className="text-indigo-500 cursor-pointer scale-z-200" onClick={() => setIsOpen(!isOpen)}>Show more</span>
                         </p>

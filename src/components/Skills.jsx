@@ -3,7 +3,7 @@ import { DiMysql } from 'react-icons/di';
 import { SiTypescript, SiTailwindcss, SiNextdotjs } from 'react-icons/si';
 import Section from './Section';
 import { SiPhp } from 'react-icons/si';
-
+import FadeContent from './react-bits/FadeContent'
 
 // Map each skill name to its corresponding icon component and hover color class
 const SKILLS_ICONS = {
@@ -43,6 +43,7 @@ const skills = [
 export default function Skills() {
   return (
     <div className='pt-5'>
+            <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
     <Section title="Technologies" id="skills">
       <hr className='mt-1 mb-3 text-indigo-500' />
       <ul className="flex flex-wrap gap-2 justify-center">
@@ -52,10 +53,10 @@ export default function Skills() {
           return (
             <li
               key={name + index}
-              className="flex items-center  hover:bg-indigo-50 text-white hover:text-indigo-500 rounded-lg px-4 py-2 gap-2 border border-indigo-500 z-50 hover:scale-105 transform transition-transform text-base md:text-sm bg-indigo-900/30 bg-opacity-15 backdrop-blur-2xl"
+              className="flex items-center  hover:bg-indigo-50 text-white hover:text-indigo-500 rounded-lg px-4 py-2 gap-2 z-40 hover:scale-105 transform transition-transform text-base md:text-sm bg-indigo-900/30 bg-opacity-15 backdrop-blur-2xl"
             >
               {Icon && (
-                <Icon className={`text-xl md:text-lg transition-colors duration-300 ${hoverClass} z-50`} />
+                <Icon className={`text-xl md:text-lg transition-colors duration-300 ${hoverClass} z-40`} />
               )}
               <span className='z-50'>{name}</span>
             </li>
@@ -63,6 +64,7 @@ export default function Skills() {
         })}
       </ul>
     </Section>
+    </FadeContent>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import Section from './Section';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import FadeContent from './react-bits/FadeContent'
+//emailjs.com
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -18,7 +20,6 @@ export default function ContactSection() {
       [e.target.name]: e.target.value,
     }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true); // Show loading spinner when submitting
@@ -43,8 +44,9 @@ export default function ContactSection() {
 
   return (
     <div className='pt-5'>
+      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
       <Section title="Get in Touch" id="contact">
-        <div className="bg-indigo-950">
+        <div className="">
           <hr className="mt-1 mb-3 text-indigo-900" />
           <div className="max-w-xl mx-auto text-center space-y-4">
             <h2 className="text-sm sm:text-1xl font-bold text-white">
@@ -65,7 +67,7 @@ export default function ContactSection() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 border-indigo-500 border-2 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md hover:shadow-indigo-500 transition duration-300 z-50"
+              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md  transition duration-300 z-40"
             />
             <input
               type="email"
@@ -74,7 +76,7 @@ export default function ContactSection() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 border-indigo-500 border-2 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md hover:shadow-indigo-500 transition duration-300 z-50"
+              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md  transition duration-300 z-40"
             />
             <textarea
               name="message"
@@ -83,12 +85,12 @@ export default function ContactSection() {
               onChange={handleChange}
               rows="5"
               required
-              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 border-indigo-500 border-2 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md hover:shadow-indigo-500 transition duration-300 z-50"
+              className="mx-4 px-4 py-3 rounded-md bg-indigo-950 text-indigo-50 text-sm placeholder-indigo-200 focus:outline-none shadow-md transition duration-300 z-40"
             ></textarea>
 
             <button
               type="submit"
-              className="mx-4 bg-indigo-900 text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-indigo-800 transition-colors mb-3 z-50"
+              className="mx-4 bg-indigo-900 text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-indigo-800 transition-colors mb-3 z-40"
               disabled={loading} // Disable button while loading
             >
               {loading ? 'Sending...' : 'Send Message'}
@@ -100,6 +102,7 @@ export default function ContactSection() {
           )}
         </div>
       </Section>
+      </FadeContent>
     </div>
   );
 }

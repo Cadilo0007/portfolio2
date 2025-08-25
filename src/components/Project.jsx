@@ -4,9 +4,12 @@ import Section from './Section';
 import Project1Img from '../assets/project2.png';
 import Project2Img from '../assets/project3.png';
 import Project3Img from '../assets/project4.png';
-import Project5Img from '../assets/project5.png'
+import Project5Img from '../assets/project5.png';
+import Project6Img from '../assets/project6.png';
+import Project7Img from '../assets/project7.png';
 import ProjectX from '../assets/IMAGE.png';
-
+import FadeContent from './react-bits/FadeContent'
+import { i } from 'framer-motion/client';
 const allProjects = [
   {
     name: 'Attendance System',
@@ -53,6 +56,24 @@ const allProjects = [
     isActive: true,
     image: Project5Img,
   },
+    {
+    name: 'Emerald Tattoo',
+    url: '',
+    github: '',
+    description: 'WooCommerce website designed for a tattoo business to showcase their services and portfolio.',
+    highlights: ['HTML', 'CSS', 'JavaScript', 'Wordpress', 'PHP', 'Node.js'],
+    isActive: true,
+    image: Project6Img,
+  },
+      {
+    name: 'FD Peptides',
+    url: 'https://fdpeptides.com/',
+    github: '',
+    description: 'WooCommerce website designed for a peptide business to showcase their products and services.',
+    highlights: ['HTML', 'CSS', 'JavaScript', 'Wordpress', 'PHP', 'Node.js'],
+    isActive: true,
+    image: Project7Img,
+  },
 ];
 
 export default function Project() {
@@ -60,6 +81,7 @@ export default function Project() {
     const visibleProjects = showAll ? allProjects : allProjects.slice(0, 3);
   return (
     <div className='pt-5'>
+    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
     <Section title="Projects" id="projects">
       <hr className="mt-1 mb-3 text-indigo-500" />
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 z-50">
@@ -73,7 +95,7 @@ export default function Project() {
                 className="block group cursor-pointer h-full"
                 title={`View ${name}`}
               >
-                <article className="relative flex flex-col justify-between p-4 border border-indigo-500 rounded-md h-full shadow-xs transition-transform duration-300 group-hover:shadow-sm group-hover:scale-[1.02] bg-indigo-950/30 bg-opacity-15 backdrop-blur-2xl">
+                <article className="relative flex flex-col justify-between p-4 rounded-md h-full shadow-xs transition-transform duration-300 group-hover:shadow-sm group-hover:scale-[1.02] bg-indigo-950/30 bg-opacity-15 backdrop-blur-2xl">
                   {/* Hover image */}
                   <div
                     className="
@@ -146,6 +168,7 @@ export default function Project() {
           </div>
         )}
     </Section>
+    </FadeContent>
     </div>
   );
 }

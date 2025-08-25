@@ -5,6 +5,7 @@ import Cisco from '../assets/exploring_networking_with_cisco_packet_tracer_25.pn
 import Cisco2 from '../assets/getting_started_with_cisco_packet_tracer_24.png';
 import Cisco3 from '../assets/exploring_iot_with_cisco_packet_tracer_26.png';
 import game2048 from '../assets/2048.png';
+import FadeContent from './react-bits/FadeContent'
 
 const certifications = [
   {
@@ -117,6 +118,7 @@ export default function Certification() {
 
   return (
     <div className="pt-5">
+      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
       <Section title="Certifications" id="certifications">
         <hr className="mt-1 mb-3 text-indigo-500" />
         <p className="text-indigo-300 text-sm text-center pb-5">
@@ -127,7 +129,7 @@ export default function Certification() {
           {visibleCerts.map(({ title, image, issuer, date }, index) => (
             <li key={index} className="h-full">
               <div className="relative group cursor-pointer h-full">
-                <article className="flex flex-col justify-between p-4 border border-indigo-500 rounded-md h-full shadow-xs transition-transform duration-300 group-hover:shadow-sm group-hover:scale-[1.02] bg-indigo-950/30 bg-opacity-15 backdrop-blur-2xl">
+                <article className="flex flex-col justify-between p-4 rounded-md h-full shadow-xs transition-transform duration-300 group-hover:shadow-sm group-hover:scale-[1.02] bg-indigo-950/30 bg-opacity-15 backdrop-blur-2xl">
                   
                   {/* Certificate Info */}
                   <div className="flex flex-col flex-grow z-10">
@@ -143,7 +145,7 @@ export default function Certification() {
                     <img
                       src={image}
                       alt={title}
-                      className="w-full h-auto max-h-48 object-contain  shadow-md bg-slate-950 rounded-md border-2 z-40"
+                      className="w-full h-auto max-h-48 object-contain  shadow-md bg-slate-950 rounded-md z-40"
                     />
                   </div>
                 </article>
@@ -164,6 +166,7 @@ export default function Certification() {
           </div>
         )}
       </Section>
+      </FadeContent>
     </div>
   );
 }

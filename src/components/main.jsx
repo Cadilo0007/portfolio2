@@ -51,11 +51,10 @@ const Main = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="relative bg-slate-950">
+        <div className="relative bg-gray-950">
           <div style={gradientStyle}></div>
-
           <div>
-            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />              
+            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />     
             <Nav />
             <Hero />
             <About />

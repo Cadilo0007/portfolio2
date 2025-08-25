@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Section from './Section';
-import GlowCard from './GlowCard';
-
+import GlowCard from './react-bits/GlowCard';
+import FadeContent from './react-bits/FadeContent'
 export default function Testimonial() {
   const testimonials = [
     {
@@ -44,6 +44,7 @@ The journey ahead is exciting — we believe you'll go far! 🚀`,
 
   return (
     <div className="pt-5">
+      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
       <Section title="Testimonials">
         <hr className="mt-1 mb-3 text-indigo-500" />
         <div
@@ -95,6 +96,7 @@ The journey ahead is exciting — we believe you'll go far! 🚀`,
           </div>
         </div>
       </Section>
+      </FadeContent>
     </div>
   );
 }

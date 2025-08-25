@@ -1,7 +1,7 @@
 import Section from './Section';
 import icLogo from '../assets/logo/ICLOGO.png';
 import nhsLogo from '../assets/logo/CCNHS.jpeg';
-
+import FadeContent from './react-bits/FadeContent'
 export default function Education({
   education = [
     {
@@ -22,6 +22,7 @@ export default function Education({
 }) {
   return (
     <div className='pt-5'>  
+      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>  
     <Section title="Education">
       <hr className="mt-1 mb-3 text-indigo-900" />
       <ul className="flex flex-col gap-8">
@@ -53,6 +54,7 @@ export default function Education({
         })}
       </ul>
     </Section>
+    </FadeContent>
     </div>
   );
 }

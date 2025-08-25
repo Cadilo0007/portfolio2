@@ -3,7 +3,7 @@
 html {
   scroll-behavior: smooth;
 }
-.card {
+.testcard {
   --start: 0; /* You can dynamically change this if needed */
   position: relative;
   z-index: 40;
@@ -11,7 +11,7 @@ html {
   transition: border-color 1s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-.card::before {
+.testcard::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -47,7 +47,7 @@ html {
   filter: blur(10px) saturate(200);
 }
 
-.card:hover::before {
+.testcard:hover::before {
   opacity: 1;
   background: conic-gradient(
     from calc((var(--start) - 15) * 1deg),
@@ -56,9 +56,17 @@ html {
     rgba(129, 140, 248, 0.8) 360deg
   );
 }
-
-
-
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+}
 /* Hero text slider starts */
 .slide {
   display: inline-block;
@@ -106,32 +114,6 @@ html {
 
 /* Hero Text slider ends */
 
-/* profile  */
-
-
-.image {
-  transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8), opacity 0.4s ease;
-  cursor: pointer;
-  user-select: none;
-}
-
-.image--current {
-  z-index: 10;
-  transform: translateY(0) rotate(0deg) scale(1);
-  opacity: 1;
-}
-
-.image--next {
-  z-index: 5;
-  transform: translateY(-10px) rotate(4deg) scale(1);
-  opacity: 0.9;
-}
-
-.image--out {
-  z-index: 1;
-  transform: translateY(-20px) rotate(8deg) scale(0.95);
-  opacity: 0.7;
-}
 
 .loader {
   animation-duration: 3s;
@@ -144,5 +126,223 @@ keyframes spin {
   to {
     transform: rotate(360deg);
     border-radius: 50%;
+  }
+}
+.shiny-text {
+  color: #b5b5b5a4; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.animate-shine {
+  animation-name: shine;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.text-rotate {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.text-rotate-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-rotate-word {
+  display: inline-flex;
+}
+
+.text-rotate-lines {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text-rotate-element {
+  display: inline-block;
+}
+
+.text-rotate-space {
+  white-space: pre;
+}
+
+/* imagestack */
+.stack-container {
+  position: relative;
+  perspective: 600px;
+}
+
+.card-rotate {
+  position: absolute;
+  cursor: grab;
+}
+
+.card {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  overflow: hidden;
+}
+
+.card-image {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dock nav */
+
+.dock-outer {
+  margin: 0 0.5rem;
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+}
+
+.dock-panel {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  border-radius: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid gray;
+  padding: 0 0.5rem 0.5rem;
+  z-index: 999;
+  background-color: rgba(6, 1, 16, 0.3);
+}
+
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-label {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.375rem;
+  border: 1px solid #222;
+  background-color: #060010;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  color: #fff;
+  transform: translateX(-50%);
+}
+
+.star-border-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.7;
+  bottom: -12px;
+  right: -250%;
+  border-radius: 50%;
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+}
+
+.border-gradient-top {
+  position: absolute;
+  opacity: 0.7;
+  width: 300%;
+  height: 50%;
+  top: -12px;
+  left: -250%;
+  border-radius: 50%;
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+}
+
+.inner-content {
+  position: relative;
+  border: 1px solid #222;
+  background: #000;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 16px 26px;
+  border-radius: 20px;
+  z-index: 1;
+}
+/* Star-movement */
+.inner-content {
+  background-color: #1e1a4d;
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid #222;
+  padding: 10px 20px;
+}
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
   }
 }

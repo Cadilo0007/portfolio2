@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Section from './Section';
 import dictLogo from '../assets/logo/DICT-Logo-Final.png';
 import logo from '../assets/IMAGE.png';
+import FadeContent from './react-bits/FadeContent'
+import vjslogo from '../assets/logo/VJS Team.jpg'
 
 export default function Experience() {
   const work = [
@@ -16,12 +18,21 @@ export default function Experience() {
       url: 'https://dict.gov.ph',
     },
         {
+      name: 'Virtual Job Sercices',
+      logo: vjslogo,
+      startDate: '2025-07-23',
+      endDate: '',
+      position: 'Web Developer',
+      summary: `Developed and maintained responsive websites and WooCommerce stores using HTML, CSS, JavaScript, and WordPress. Collaborated with stakeholders to gather requirements, design layouts, and implement features that improved user experience and supported business objectives.`,
+      url: 'https://virtualjobservices.com/',
+    },
+            {
       name: 'Freelance',
       logo: logo,
       startDate: '2023-04-05',
       endDate: '',
       position: 'Self Employed',
-      summary: `Created animated and branded visuals in Canva for various clients. Developed responsive portfolio websites using HTML, CSS, and JavaScript, and collaborated to enhance UX and layout.
+      summary: `Created layouts, animations, and branded visuals in Canva for various clients. Developed responsive portfolio websites using HTML, CSS, and JavaScript, and collaborated to enhance UX and layout.
       `,
       url: '',
     },
@@ -29,6 +40,7 @@ export default function Experience() {
 
   return (
     <div className='pt-5'>
+      <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>       
       <Section title="Experience">
         <hr className="mt-1 mb-3 text-indigo-900" />
         <ul className="flex flex-col gap-8">
@@ -36,7 +48,6 @@ export default function Experience() {
             ({ name, logo, startDate, endDate, position, summary, url }, index) => {
               const startYear = new Date(startDate).getFullYear();
               const endYear = endDate ? new Date(endDate).getFullYear() : 'Present';
-
               // State for toggling the visibility of the summary
               const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +63,7 @@ export default function Experience() {
                           <img
                             src={logo}
                             alt={`${name} logo`}
-                            className="w-6 h-6 object-contain shadow-md hover:shadow-indigo-500 transition duration-300 rounded-full bg-amber-50 mr-4"
+                            className="w-6 h-6 object-contain shadow-md hover:shadow-indigo-500 transition duration-300 rounded-full mr-4 bg-white"
                           />
                         </a>
                         <h3 className="text-sm font-semibold text-white">
@@ -71,7 +82,6 @@ export default function Experience() {
                         <time>{startYear}</time> - <time>{endYear}</time>
                       </div>
                     </header>
-
                     {/* Conditionally add ellipsis and "Show more" if the summary is hidden */}
                     <footer>
                       {!isOpen && (
@@ -93,6 +103,7 @@ export default function Experience() {
           )}
         </ul>
       </Section>
+      </FadeContent>
     </div>
   );
 }

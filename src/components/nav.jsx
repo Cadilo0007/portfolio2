@@ -1,43 +1,63 @@
-import { useState, useEffect } from "react";
-import { FaHome, FaUserAlt, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
+import Dock from './react-bits/Dock';
+import { VscHome } from 'react-icons/vsc';
+import { FaGithub, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { FiMail, FiPhone } from 'react-icons/fi';
+
 
 const Nav = () => {
-  const [showNav, setShowNav] = useState(false);
+const items = [
+  {
+    id: 'home',
+    icon: <VscHome size={18} />,
+    label: 'Home',
+    onClick: () => {
+      const el = document.getElementById('hero');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    },
+  },
+  {
+      id: 'github',
+      icon: <FaGithub size={18} />,
+      label: 'GitHub',
+      onClick: () => window.open('https://github.com/Cadilo0007', '_blank'),
+  },
+    {
+      id: 'facebook',
+      icon: <FaFacebookF size={18} />,
+      label: 'Facebook',
+      onClick: () => window.open('https://web.facebook.com/justine.cadilo.9', '_blank'),
+  },
+    {
+      id: 'instagram',
+      icon: <FaInstagram size={18} />,
+      label: 'Instagram',
+      onClick: () => window.open('https://www.instagram.com/jl_cadilo/', '_blank'),
+  },
+    {
+      id: 'linkedin',
+      icon: <FaLinkedinIn size={18} />,
+      label: 'LinkedIn',
+      onClick: () => window.open('https://www.linkedin.com/in/justine-leymark-b-cadilo-900806315/', '_blank'),
+  },
+  {
+    id: 'email',
+    icon: <FiMail size={18} />,
+    label: 'Email',
+    onClick: () => window.open('mailto: ju27ine@gmail.com', '_blank'),
+  },
+];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowNav(true);
-      } else {
-        setShowNav(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
-      {showNav && (
-        <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-60 px-6 py-3 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] flex items-center gap-6 text-amber-400 text-xl bg-gradient-to-br from-indigo-900/20 to-indigo-950/30 backdrop-blur-2xl border border-white/10">
-
-          <a href="#hero" className="hover:text-indigo-300 transition" title="Home">
-            <FaHome />
-          </a>
-          <a href="#about" className="hover:text-indigo-300 transition" title="About">
-            <FaUserAlt />
-          </a>
-          <a href="#projects" className="hover:text-indigo-300 transition" title="Projects">
-            <FaProjectDiagram />
-          </a>
-          <a href="#contact" className="hover:text-indigo-300 transition" title="Contact">
-            <FaEnvelope />
-          </a>
-        </nav>
-      )}
+    <div className='fixed bottom-0 left-0 right-0 z-50 text-white flex justify-center items-center h-16'>
+      <Dock 
+      items={items}
+      panelHeight={60}
+      baseItemSize={40}
+      magnification={60}
+    />    
+    </div>
     </>
   );
 };
